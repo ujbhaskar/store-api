@@ -75,7 +75,10 @@ router.post('/', (req, res) => {
         return user.email === newUser.email;
     });
     if(userIndex === -1) {
-        usersOperation.push(newUser);
+        usersOperation.push({
+            ...newUser,
+            userType: 'normal'
+        });
         //Open the file
         lib.update(usersOperation, (err) => {
             if(!err) {
