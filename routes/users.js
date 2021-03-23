@@ -59,7 +59,9 @@ router.get('/loggedUser', verifyToken, (req, res) => {
 router.get('/', (req, res) => {
     lib.read((err, data) => {
         if (!err && data) {
-            res.send(data);
+            res.send({
+                users: data
+            });
         } else {
             res.status(500).send({
                 error: err
