@@ -179,6 +179,7 @@ router.delete('/:id', verifyToken, (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    console.log('in login: ', req.body);
     const loginCredentials = req.body;
     if (!loginCredentials.email && !loginCredentials.password) {
         res.status(401).send({
